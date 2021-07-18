@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-app';
+  options = [{name: 'Sim', votes: 0}, {name: 'Não', votes: 0}]
+  state = 'open'
+  title = 'Isso é um projeto Angular?'
 }

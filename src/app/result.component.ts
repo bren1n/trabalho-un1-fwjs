@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   template: `
     <h1>Resultados</h1>
     <ol>
-      <li *ngFor="let option of options">{{ option.name }} - {{ option.votes }} votos ({{ (option.votes / total) * 100 }}%)</li>
+      <li *ngFor="let option of options">{{ option.name }} - {{ option.votes }} votos ({{ (option.votes / getTotal()) * 100 }}%)</li>
     </ol>
   `,
   styles: [
@@ -13,6 +13,13 @@ import { Component, Input } from '@angular/core';
 })
 export class ResultComponent {
   @Input() options: any[] = []
-  @Input() total: number = 0
+  
+
+  getTotal() {
+    if (this.options.length === 0)
+      return 1
+
+    return this.options.reduce((x, y) => x + y.votes, 0)
+  }
 
 }
