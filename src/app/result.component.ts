@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   template: `
     <h1>Resultados</h1>
     <ol>
-      <li *ngFor="let option of options">{{ option.name }} - {{ option.votes }} votos ({{ (option.votes / getTotal()) * 100 }}%)</li>
+      <li *ngFor="let option of options">{{ option.name }} - {{ option.votes }} votos ({{ ((option.votes / getTotal()) * 100).toFixed(1) }}%)</li>
     </ol>
   `,
   styles: [

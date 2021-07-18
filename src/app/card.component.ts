@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
     <div class="card">
     <div *ngIf="state === 'open'; else results">
       <h1>{{ title }}</h1>
-      <booth [title]="title" [options]="options" (vote)="vote($event)"></booth>
+      <booth [options]="options" (vote)="vote($event)"></booth>
     </div>
 
     <ng-template #results>
