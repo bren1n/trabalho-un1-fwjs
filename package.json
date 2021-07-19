@@ -7,7 +7,8 @@
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=52c397d4d08b"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
