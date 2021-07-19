@@ -218,7 +218,7 @@
         },
         {
             "name": "ResultComponent",
-            "id": "component-ResultComponent-f4d336858d6ce06ef9260bfd4f8cbecc",
+            "id": "component-ResultComponent-fafbda834905622a046e3c584a92e607",
             "file": "src/app/result.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -228,7 +228,7 @@
             "selector": "result",
             "styleUrls": [],
             "styles": [],
-            "template": "<h1>Resultados</h1>\n<ol>\n  <li *ngFor=\"let option of options\">{{ option.name }} - {{ option.votes }} votos ({{ (option.votes / getTotal()) * 100 }}%)</li>\n</ol>\n",
+            "template": "<h1>Resultados</h1>\n<ol>\n  <li *ngFor=\"let option of options\">{{ option.name }} - {{ option.votes }} votos ({{ ((option.votes / getTotal()) * 100).toFixed(1) }}%)</li>\n</ol>\n",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
@@ -262,7 +262,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'result',\n  template: `\n    <h1>Resultados</h1>\n    <ol>\n      <li *ngFor=\"let option of options\">{{ option.name }} - {{ option.votes }} votos ({{ (option.votes / getTotal()) * 100 }}%)</li>\n    </ol>\n  `,\n  styles: [\n  ]\n})\nexport class ResultComponent {\n  @Input() options: any[] = []\n  \n\n  getTotal() {\n    if (this.options.length === 0)\n      return 1\n\n    return this.options.reduce((x, y) => x + y.votes, 0)\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'result',\n  template: `\n    <h1>Resultados</h1>\n    <ol>\n      <li *ngFor=\"let option of options\">{{ option.name }} - {{ option.votes }} votos ({{ ((option.votes / getTotal()) * 100).toFixed(1) }}%)</li>\n    </ol>\n  `,\n  styles: [\n  ]\n})\nexport class ResultComponent {\n  @Input() options: any[] = []\n  \n\n  getTotal() {\n    if (this.options.length === 0)\n      return 1\n\n    return this.options.reduce((x, y) => x + y.votes, 0)\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ""
