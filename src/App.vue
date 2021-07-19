@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <Card />
+    <Card :state="state" :title="title" :options="options" @vote="vote" />
   </div>
 </template>
 
@@ -11,6 +11,17 @@ export default {
   name: "App",
   components: {
     Card,
+  },
+  data: () => ({
+    state: 'open',
+    title: 'Isso é um projeto Vue?',
+    options: [{name: 'Sim', votes: 0}, {name: 'Não', votes: 0}]
+  }),
+  methods: {
+    vote(index) {
+        this.state = 'closed'
+        this.options[index].votes++
+    }
   },
 };
 </script>
