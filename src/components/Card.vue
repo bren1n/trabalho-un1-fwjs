@@ -1,8 +1,9 @@
 <template>
-    <div>
-        <Booth v-if="state === 'open'" :options="options" :title="title" @vote="vote"/>
-        <Result v-else :options="options" :total="total"/>
+    <div v-if="state === 'open'">
+        <h1>{{ title }}</h1>
+        <Booth :options="options" @vote="vote"/>
     </div>
+    <Result v-else :options="options"/>
 </template>
 
 <script>
@@ -21,15 +22,11 @@ export default {
         vote(index) {
             this.state = 'closed'
             this.options[index].votes++
-            console.log(this.total)
         }
     },
     computed: {
         options() {
             return options
-        },
-        total() {
-            return options.reduce((x, y) => x + y.votes, 0)
         }
     }
 }
