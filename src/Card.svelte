@@ -1,8 +1,9 @@
 <div class="card">
     {#if state === 'open'}
-        <Booth {options} {title} on:vote="{vote}"/>
+        <h1>{title}</h1>
+        <Booth {options} on:vote="{vote}"/>
     {:else}
-        <Result {options} {total}/>
+        <Result {options}/>
     {/if}
 
 </div>
@@ -11,15 +12,14 @@
     import Booth from './Booth.svelte'
     import Result from './Result.svelte'
 
-    const options = [{name: 'Sim', votes: 0}, {name: 'Não', votes: 0}]
+    // const options = [{name: 'Sim', votes: 0}, {name: 'Não', votes: 0}]
 
-    let state = 'open'
-    let total = options.reduce((x, y) => x + y.votes, 0);
-    let title = 'Esse é um projeto Svelte?'
+    export let state
+    export let title
+    export let options
 
     function vote(index){
         options[index.detail].votes++
-        total++
         state = 'closed'
     }
 </script>
