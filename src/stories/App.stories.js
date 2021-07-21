@@ -1,7 +1,7 @@
 import App from '../App.vue';
 
 export default {
-  title: 'Voting/VotingContainer',
+  title: 'Voting/App',
   component: App,
 };
 
